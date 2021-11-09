@@ -8,14 +8,18 @@ const BookDetails = ({bookId}) => {
     }
   });
   return (
-    <div id="book-details">
-      {loading && <div>Loading...</div>}
+    <div className="card blue-grey darken-1">
+      {loading && 
+      <div className="progress">
+        <div className="indeterminate"></div>
+      </div>
+    }
       {data && 
-        <div id="book-info">
+        <div className="white-text" style={{padding: 30}}>
           <h2>{data.book.name}</h2>
-          <p>{data.book.genre}</p>
-          <p>{data.book.author.name}</p>
-          <p>All books by this author</p>
+          <p>Жанр: {data.book.genre}</p>
+          <p>Автор: {data.book.author.name}</p>
+          <p>Все книги от этого автора</p>
           <ul>
             {data.book.author.books.map(item => {
               return <li key={item.id}>{item.name}</li>
@@ -23,7 +27,6 @@ const BookDetails = ({bookId}) => {
           </ul>
         </div>
       }
-      {!data && <div>Book not selected</div>}
     </div>
   );
 }
