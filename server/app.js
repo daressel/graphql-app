@@ -3,10 +3,11 @@ const { graphqlHTTP } = require('express-graphql');
 const schema = require('./schema/schema');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const config = require('dotenv').config().parsed
 
 const app = express();
 
-mongoose.connect('mongodb+srv://daressel:ToLabibK2AUJsJGj@daresselclaster.3d72w.mongodb.net/graphql-test?retryWrites=true&w=majority');
+mongoose.connect(config.DB_LINK);
 mongoose.connection.once('open', () => {
   console.log('connected to db');
 });
