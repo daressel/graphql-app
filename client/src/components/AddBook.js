@@ -4,7 +4,6 @@ import { useEffect, useLayoutEffect, useState } from "react";
 import M from "materialize-css"
 
 function AddBook() {
-
   const [name, setName] = useState('');
   const [genre, setGenre] = useState('');
   const [authorId, setAuthorId] = useState('');
@@ -29,7 +28,6 @@ function AddBook() {
           <label>Book name</label>
           <input type="text" onChange={e => setName(e.target.value)} />
         </div>
-
         <div className="field">
           <label>Genre</label>
           <input type="text" onChange={e => setGenre(e.target.value)} />
@@ -47,10 +45,8 @@ function AddBook() {
             <label>Author</label>
           </div>
         }
-        <button type="submit" className="waves-effect waves-light btn-large right">+</button>       
-        {M.AutoInit()}
+        <button type="submit" className="waves-effect waves-light btn-large right">+</button>
         </form>
-
     </div>
     
   );
