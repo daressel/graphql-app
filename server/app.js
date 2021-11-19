@@ -9,7 +9,7 @@ const app = express();
 
 mongoose.connect(config.DB_LINK);
 mongoose.connection.once('open', () => {
-  console.log('connected to db');
+  console.log('connected to local db graphql');
 });
 
 app.use(cors());

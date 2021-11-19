@@ -1,8 +1,11 @@
+import { useState } from "react";
 import AddBook from "./components/AddBook";
 import BookList from "./components/BookList"
+import BookDetails from "./components/BookDetails"
 
 function App() {
-  return (
+  const [bookId, setBookId] = useState('');
+  return (    
     <div id="main">
       <div className="navbar-fixed">
         <nav>
@@ -11,8 +14,19 @@ function App() {
           </div>
         </nav>
       </div>
-      <BookList />
-      <AddBook />
+      <div className="row">
+        <div className="col s7 offset-s1">
+          <div className="row">
+            <BookList setBookId={setBookId} />
+            <AddBook />
+          </div>
+        </div>
+        <div className="col s3">
+          {bookId && <BookDetails bookId={bookId}/>}
+        </div>
+        
+      </div>
+      
     </div>
   );
 }
