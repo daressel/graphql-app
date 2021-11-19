@@ -14,19 +14,20 @@ function App() {
           </div>
         </nav>
       </div>
-      <div className="row">
-        <div className="col s7 offset-s1">
-          <div className="row">
-            <BookList setBookId={setBookId} />
-            <AddBook />
+      <div className="container">
+        <div className="row">
+          <div className="col s8">
+            <div className="row">
+              <BookList setBookId={setBookId} />
+              <AddBook />
+            </div>
           </div>
-        </div>
-        <div className="col s3">
-          {bookId && <BookDetails bookId={bookId}/>}
-        </div>
-        
+          <div className="col s4">
+            {bookId && <BookDetails bookId={bookId}/>}
+          </div>        
+        </div>   
       </div>
-      
+           
     </div>
   );
 }
